@@ -19,16 +19,17 @@ class _EditScreenState extends State<EditScreen> {
   final formKey = GlobalKey<FormState>();
 
   final titleController = TextEditingController();
-
+  final ingredientsController = TextEditingController();
   final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     titleController.text = widget.statement.title;
+    ingredientsController.text = widget.statement.title;
     amountController.text = widget.statement.amount.toString();
     return Scaffold(
         appBar: AppBar(
-          title: const Text('แบบฟอร์มแก้ไขข้อมูล'),
+          title: const Text('แก้ไขเมนูอาหาร'),
         ),
         body: Form(
             key: formKey,
@@ -36,19 +37,31 @@ class _EditScreenState extends State<EditScreen> {
               children: [
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'ชื่อรายการ',
+                    labelText: 'ชื่ออาหาร',
                   ),
                   autofocus: false,
                   controller: titleController,
                   validator: (String? str) {
                     if (str!.isEmpty) {
-                      return 'กรุณากรอกข้อมูล';
+                      return 'กรุณากรอกชื่ออาหาร';
                     }
                   },
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'จำนวนเงิน',
+                    labelText: 'วัตถุดิบ',
+                  ),
+                  autofocus: false,
+                  controller: ingredientsController,
+                  validator: (String? str) {
+                    if (str!.isEmpty) {
+                      return 'กรุณากรอกวัตถุดิบ';
+                    }
+              },
+            ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'ระดับความยาก-ง่าย',
                   ),
                   keyboardType: TextInputType.number,
                   controller: amountController,
@@ -73,7 +86,8 @@ class _EditScreenState extends State<EditScreen> {
                                   keyID: widget.statement.keyID,
                                   title: titleController.text,
                                   amount: double.parse(amountController.text),
-                                  date: DateTime.now()
+                                  date: DateTime.now(),
+                                  ingredients: ingredientsController.text,
                                   );
                             
                               // add transaction data object to provider

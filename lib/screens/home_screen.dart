@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'dart:math';  // ใช้สำหรับการสุ่ม
+import 'dart:math';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // รายการเมนูอาหารที่ใช้ในการสุ่ม
   List<String> foodMenu = [
     'ผัดไทย',
     'ส้มตำ',
@@ -26,15 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
     'หมูปิ้ง',
   ];
 
-  // ฟังก์ชันสุ่มเมนูอาหาร
   String getRandomFood() {
     final random = Random();
     return foodMenu[random.nextInt(foodMenu.length)];
   }
 
-  // ฟังก์ชันแสดง pop-up เมนูที่สุ่มได้
   void showRandomFoodDialog(BuildContext context) {
-    String randomFood = getRandomFood();  // สุ่มเมนูอาหาร
+    String randomFood = getRandomFood(); 
     showDialog(
       context: context,
       builder: (context) {
@@ -44,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // ปิด pop-up
+                Navigator.of(context).pop(); 
               },
               child: const Text('ตกลง'),
             ),
@@ -119,9 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showRandomFoodDialog(context);  // เรียกใช้ฟังก์ชันแสดง pop-up เมนูอาหารที่สุ่มได้
+          showRandomFoodDialog(context);
         },
-        child: const Icon(Icons.restaurant_menu),  // ไอคอนสุ่มเมนู
+        child: const Icon(Icons.restaurant_menu),
         tooltip: 'สุ่มเมนูอาหาร',
       ),
     );

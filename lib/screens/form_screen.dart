@@ -18,7 +18,7 @@ class _FormScreenState extends State<FormScreen> {
   final formKey = GlobalKey<FormState>();
 
   final titleController = TextEditingController();
-
+  final ingredientsController = TextEditingController();
   final amountController = TextEditingController();
 
   @override
@@ -49,13 +49,13 @@ class _FormScreenState extends State<FormScreen> {
                     labelText: 'วัตถุดิบ',
                   ),
                   autofocus: false,
-                  controller: titleController,
+                  controller: ingredientsController,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
                     }
-                  },
-                ),
+              },
+            ),
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'ระดับความยาก-ง่าย',
