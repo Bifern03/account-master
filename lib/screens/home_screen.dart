@@ -20,9 +20,21 @@ class _HomeScreenState extends State<HomeScreen> {
     'แกงเขียวหวาน',
     'ต้มยำกุ้ง',
     'ข้าวมันไก่',
-    'ผัดกระเพรา',
+    'ผัดกะเพรา',
     'ข้าวผัด',
     'หมูปิ้ง',
+    'ปูผัดผงกะหรี่',
+    'ก๋วยเตี็ยว',
+    'ข้าวยำไก่แซ่บ',
+    'ข้าวขาหมู',
+    'ราดหน้า',
+    'หมูกระทะ',
+    'หม่าล่า',
+    'ผััดพริกแกง',
+    'ขนมจีนน้ำเงี้ยว',
+    'ลาบ',
+    'ต้มแซ่บ',
+    'ผัดเปรี้ยวหวาน',
   ];
 
   String getRandomFood() {
@@ -31,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void showRandomFoodDialog(BuildContext context) {
-    String randomFood = getRandomFood(); 
+    String randomFood = getRandomFood();
     showDialog(
       context: context,
       builder: (context) {
@@ -41,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); 
+                Navigator.of(context).pop();
               },
               child: const Text('ตกลง'),
             ),

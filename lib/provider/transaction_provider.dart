@@ -29,7 +29,7 @@ class TransactionProvider with ChangeNotifier {
     var db = await TransactionDB(dbName: 'transactions.db');
     await db.deleteDatabase(index);
     this.transactions = await db.loadAllData();
-    notifyListeners(); 
+    notifyListeners();
   }
 
   void updateTransaction(Transactions transaction) async{

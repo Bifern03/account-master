@@ -25,7 +25,7 @@ class _EditScreenState extends State<EditScreen> {
   @override
   Widget build(BuildContext context) {
     titleController.text = widget.statement.title;
-    ingredientsController.text = widget.statement.title;
+    ingredientsController.text = widget.statement.ingredients;
     amountController.text = widget.statement.amount.toString();
     return Scaffold(
         appBar: AppBar(
@@ -55,7 +55,7 @@ class _EditScreenState extends State<EditScreen> {
                   controller: ingredientsController,
                   validator: (String? str) {
                     if (str!.isEmpty) {
-                      return 'กรุณากรอกวัตถุดิบ';
+                      return 'กรุณากรอกข้อมูล';
                     }
               },
             ),

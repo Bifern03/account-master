@@ -1,6 +1,5 @@
 import 'package:account/main.dart';
 import 'package:account/models/transactions.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:account/provider/transaction_provider.dart';
@@ -83,7 +82,8 @@ class _FormScreenState extends State<FormScreen> {
                                   keyID: null,
                                   title: titleController.text,
                                   amount: double.parse(amountController.text),
-                                  date: DateTime.now()
+                                  date: DateTime.now(),
+                                  ingredients: ingredientsController.text,
                                   );
                             
                               // add transaction data object to provider

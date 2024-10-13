@@ -27,7 +27,8 @@ class TransactionDB{
     var keyID  = store.add(db, {
       "title": statement.title,
       "amount": statement.amount,
-      "date": statement.date.toIso8601String()
+      "date": statement.date.toIso8601String(),
+      "ingredients": statement.ingredients,
     });
     db.close();
     return keyID;
@@ -43,7 +44,8 @@ class TransactionDB{
         keyID: record.key,
         title: record['title'].toString(),
         amount: double.parse(record['amount'].toString()),
-        date: DateTime.parse(record['date'].toString())
+        date: DateTime.parse(record['date'].toString()),
+        ingredients: record['ingredients'].toString(),
       ));
     }
     db.close();
@@ -64,7 +66,8 @@ class TransactionDB{
     var result = store.update(db, finder: filter,  {
       "title": statement.title,
       "amount": statement.amount,
-      "date": statement.date.toIso8601String()
+      "date": statement.date.toIso8601String(),
+      "ingredients": statement.ingredients,
     });
     db.close();
     print('update result: $result');
