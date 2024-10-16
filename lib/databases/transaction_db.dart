@@ -26,7 +26,7 @@ class TransactionDB{
 
     var keyID  = store.add(db, {
       "title": statement.title,
-      "amount": statement.amount,
+      "amount": statement.level,
       "date": statement.date.toIso8601String(),
       "ingredients": statement.ingredients,
     });
@@ -43,7 +43,7 @@ class TransactionDB{
       transactions.add(Transactions(
         keyID: record.key,
         title: record['title'].toString(),
-        amount: double.parse(record['amount'].toString()),
+        level: double.parse(record['level'].toString()),
         date: DateTime.parse(record['date'].toString()),
         ingredients: record['ingredients'].toString(),
       ));
@@ -65,7 +65,7 @@ class TransactionDB{
     var filter = Finder(filter: Filter.equals(Field.key, statement.keyID));
     var result = store.update(db, finder: filter,  {
       "title": statement.title,
-      "amount": statement.amount,
+      "amount": statement.level,
       "date": statement.date.toIso8601String(),
       "ingredients": statement.ingredients,
     });

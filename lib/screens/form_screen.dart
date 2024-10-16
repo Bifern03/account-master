@@ -18,7 +18,7 @@ class _FormScreenState extends State<FormScreen> {
 
   final titleController = TextEditingController();
   final ingredientsController = TextEditingController();
-  final amountController = TextEditingController();
+  final levelController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _FormScreenState extends State<FormScreen> {
                     labelText: 'ระดับความยาก-ง่าย',
                   ),
                   keyboardType: TextInputType.number,
-                  controller: amountController,
+                  controller: levelController,
                   validator: (String? input) {
                     try {
                       double amount = double.parse(input!);
@@ -81,7 +81,7 @@ class _FormScreenState extends State<FormScreen> {
                               var statement = Transactions(
                                   keyID: null,
                                   title: titleController.text,
-                                  amount: double.parse(amountController.text),
+                                  level: double.parse(levelController.text),
                                   date: DateTime.now(),
                                   ingredients: ingredientsController.text,
                                   );

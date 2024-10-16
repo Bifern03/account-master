@@ -20,13 +20,13 @@ class _EditScreenState extends State<EditScreen> {
 
   final titleController = TextEditingController();
   final ingredientsController = TextEditingController();
-  final amountController = TextEditingController();
+  final levelController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     titleController.text = widget.statement.title;
     ingredientsController.text = widget.statement.ingredients;
-    amountController.text = widget.statement.amount.toString();
+    levelController.text = widget.statement.level.toString();
     return Scaffold(
         appBar: AppBar(
           title: const Text('แก้ไขเมนูอาหาร'),
@@ -64,7 +64,7 @@ class _EditScreenState extends State<EditScreen> {
                     labelText: 'ระดับความยาก-ง่าย',
                   ),
                   keyboardType: TextInputType.number,
-                  controller: amountController,
+                  controller: levelController,
                   validator: (String? input) {
                     try {
                       double amount = double.parse(input!);
@@ -85,7 +85,7 @@ class _EditScreenState extends State<EditScreen> {
                               var statement = Transactions(
                                   keyID: widget.statement.keyID,
                                   title: titleController.text,
-                                  amount: double.parse(amountController.text),
+                                  level: double.parse(levelController.text),
                                   date: DateTime.now(),
                                   ingredients: ingredientsController.text,
                                   );

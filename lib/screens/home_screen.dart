@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     leading: CircleAvatar(
                       radius: 30,
                       child: FittedBox(
-                        child: Text('${statement.amount}'),
+                        child: Text('${statement.level}'),
                       ),
                     ),
                     trailing: IconButton(
